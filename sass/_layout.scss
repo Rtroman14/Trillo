@@ -24,18 +24,51 @@
     align-items: center;
 
     @media only screen and (max-width: $bp-smallest) {
-        flex-wrap: wrap;
-        height: 10rem;
+        // flex-wrap: wrap;
+        height: max-content;
         align-content: space-around;
+    }
+
+    &__hotel {
+        display: flex;
+        align-items: center;
+    }
+
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 2rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
+    }
+
+    &__stars {
+        display: flex;
+
+        @media only screen and (max-width: $bp-smallest) {
+            display: none;
+        }
+    }
+
+    &__icon-star {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
     }
 }
 
 .content {
     display: flex;
+    flex-direction: column;
 
-    @media only screen and (max-width: $bp-medium) {
-        flex-direction: column;
-    }
+    // @media only screen and (max-width: $bp-medium) {
+    //     flex-direction: column;
+    // }
 }
 
 .sidebar {
@@ -48,7 +81,7 @@
     justify-content: space-between; // space between ul and div
 }
 
-.hotel-view {
+.vehicle-view {
     background-color: #fff;
     flex: 1; // grow as much as it can
 }
@@ -57,7 +90,8 @@
     font-size: 1.4rem;
     display: flex;
     padding: 4.5rem;
-    background-color: var(--color-grey-light-1);
+    // background-color: var(--color-grey-light-1);
+    background-color: var(--color-grey-light-3);
     border-bottom: var(--line);
 
     @media only screen and (max-width: $bp-medium) {
@@ -70,8 +104,11 @@
 }
 
 .description {
-    background-color: #fff;
-    box-shadow: var(--shadow-light);
+    // background-color: #fff;
+    background-color: var(--color-grey-light-3);
+    // box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-neumorphism);
+    border-radius: 2rem;
     padding: 3rem;
     flex: 0 0 60%;
     margin-right: 4.5rem;

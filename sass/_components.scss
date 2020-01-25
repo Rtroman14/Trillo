@@ -4,6 +4,11 @@
 .logo {
     height: 3.25rem;
     margin-left: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+        height: 3rem;
+        margin-left: 2rem;
+    }
 }
 
 //////////////////////////////////////////////
@@ -15,10 +20,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 12rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        margin-left: 10rem;
+    }
 
     @media only screen and (max-width: $bp-smallest) {
-        order: 1;
-        flex: 0 0 100%;
+        // order: 1;
+        // flex: 0 0 100%;
+        margin-left: 2rem;
     }
 
     &__input {
@@ -94,6 +105,10 @@
 
     &__icon-box {
         position: relative;
+
+        @media only screen and (max-width: $bp-phone) {
+            display: none;
+        }
     }
 
     &__icon {
@@ -128,25 +143,17 @@
 //////////////////////////////////////////////
 // SIDE NAVIGATION
 .side-nav {
+    display: flex;
+    justify-content: space-around;
     font-size: 1.4rem;
     list-style: none;
-    margin-top: 3.5rem;
 
-    @media only screen and (max-width: $bp-medium) {
-        display: flex;
-        margin-top: 0;
+    @media only screen and (max-width: $bp-smallest) {
+        font-size: 1.2rem;
     }
 
     &__item {
         position: relative;
-
-        &:not(:last-child) {
-            margin-bottom: 0.5rem;
-
-            @media only screen and (max-width: $bp-medium) {
-                margin-bottom: 0;
-            }
-        }
 
         @media only screen and (max-width: $bp-medium) {
             flex: 1;
@@ -195,7 +202,7 @@
 
         @media only screen and (max-width: $bp-small) {
             flex-direction: column;
-            padding: 1.5 0.5remrem;
+            padding: 1.5rem 0.5rem;
         }
     }
 
@@ -243,34 +250,9 @@
 
 .overview {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom: var(--line);
-
-    &__heading {
-        font-size: 2.25rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 1.5rem 3rem;
-
-        @media only screen and (max-width: $bp-small) {
-            font-size: 1.8rem;
-            padding: 1.25rem 2rem;
-        }
-    }
-
-    &__stars {
-        // flex: 1; // grow to max available space
-        margin-right: auto; // better alternative to flex: 1;
-        display: flex;
-    }
-
-    &__icon-star,
-    &__icon-location {
-        width: 1.75rem;
-        height: 1.75rem;
-        fill: var(--color-primary);
-    }
 
     &__location {
         font-size: 1.2rem;
@@ -278,17 +260,24 @@
         align-items: center;
     }
 
+    &__review {
+        display: flex;
+    }
+
     &__icon-location {
         margin-right: 0.5rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+        // fill: white;
     }
 
     &__rating {
         background-color: var(--color-primary);
         color: #fff;
         margin-left: 3rem;
-        align-self: stretch; // stretch element to 100% of cross axis
+        align-self: stretch;
         padding: 0 2.25rem;
-
         display: flex;
         flex-direction: column; // change direction of main axis
         align-items: center;
@@ -323,14 +312,14 @@
 // BUTTON INLINE
 .btn-inline {
     border: none;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     font-size: inherit;
     border-bottom: 1px solid currentColor;
     padding-bottom: 2px;
     display: inline-block;
     background-color: transparent;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.1s;
 
     & span {
         margin-left: 3px;
@@ -338,7 +327,7 @@
     }
 
     &:hover {
-        color: var(--color-grey-dark-1);
+        color: var(--color-primary-dark);
 
         span {
             margin-left: 8px;
@@ -451,8 +440,11 @@
 // REVIEWS
 .review {
     position: relative;
-    background-color: #fff;
-    box-shadow: var(--shadow-light);
+    // background-color: #fff;
+    background-color: var(--color-grey-light-3);
+    // box-shadow: var(--shadow-light);
+    box-shadow: var(--shadow-neumorphism);
+    border-radius: 2rem;
     padding: 3rem;
     margin-bottom: 3.5rem;
     overflow: hidden;
@@ -505,11 +497,11 @@
     &::before {
         content: "\201C";
         position: absolute;
-        top: -2.7rem;
-        left: -1rem;
+        top: -2.1rem;
+        left: -0.5rem;
         line-height: 1;
         font-size: 20rem;
-        color: var(--color-grey-light-2);
+        color: white;
         font-family: sans-serif;
         z-index: 1;
     }
@@ -520,6 +512,8 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+    border-top: 2px solid white;
+    background-color: var(--color-grey-light-3);
 
     @media only screen and (max-width: $bp-medium) {
         padding: 2.5rem 0;
@@ -535,43 +529,29 @@
 
 .btn {
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
+    color: var(--color-primary);
     text-transform: uppercase;
     border-radius: 100px;
     border: none;
-    background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
-    color: #fff;
+    // background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    background-color: var(--color-grey-light-3);
+    box-shadow: var(--shadow-neumorphism);
     position: relative;
-    overflow: hidden; // hide invisible span
+    padding: 2rem 6rem;
+    transform: scale(1);
     cursor: pointer;
-
-    & > * {
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        transition: all 0.1s;
-    }
-
-    &__visible {
-        padding: 2rem 7.5rem;
-    }
-
-    &__invisible {
-        padding: 2rem 0;
-        position: absolute;
-        left: 0;
-        top: -100%;
-    }
+    transition: all 0.1s;
 
     &:hover {
-        background-image: linear-gradient(to left, var(--color-primary), var(--color-primary-dark));
+        // background-image: linear-gradient(to left, var(--color-primary), var(--color-primary-dark));
+        box-shadow: var(--shadow-neumorphism-inset);
+        transform: scale(0.97);
     }
 
-    &:hover &__visible {
-        transform: translateY(100%); // need height specified
-    }
+    &-2 {
+        font-size: 1.3rem;
 
-    &:hover &__invisible {
-        top: 0;
+        padding: 1rem 2rem;
     }
 }

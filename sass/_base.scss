@@ -1,26 +1,10 @@
-/*
-COLORS
-
-Primary: #eb2f64
-Primary light: #FF3366
-Primary dark: #BA265D
-
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
-
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
-
-*/
-
 // variables will be accessible throughout document
 :root {
     --color-primary: #eb2f64;
     --color-primary-light: #ff3366;
     --color-primary-dark: #ba265d;
+
+    // --color-background: #1d2228;
 
     --color-grey-light-1: #faf9f9;
     --color-grey-light-2: #f4f2f2;
@@ -32,7 +16,11 @@ Grey dark 3: #999
     --color-grey-dark-3: #999;
 
     --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --shadow-light: 0 2rem 5rem rgba(143, 60, 60, 0.06);
+
+    --shadow-neumorphism: 6px 6px 12px rgba(0, 0, 0, 0.08), -6px -6px 12px rgba(255, 255, 255, 1);
+    --shadow-neumorphism-inset: inset 6px 6px 12px rgba(0, 0, 0, 0.08),
+        inset -6px -6px 12px rgba(255, 255, 255, 1);
 
     --line: 1px solid var(--color-grey-light-2);
 }
@@ -43,6 +31,7 @@ $bp-large: 68.75em; // 1100px / 16px
 $bp-medium: 56.25em; // 900px / 16px
 $bp-small: 37.5em; // 600px / 16px
 $bp-smallest: 31.25em; // 500px / 16px
+$bp-phone: 25em; // 400px / 16px
 
 * {
     margin: 0;
